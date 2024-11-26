@@ -1,0 +1,9 @@
+<div class="flex items-center">
+  <label class="relative cursor-pointer">
+    <input type="checkbox" class="sr-only peer" [checked]="isDarkModeActive" />
+    <div
+      (click)="toggleDarkMode()"
+      class="w-12 h-7 flex items-center bg-gray-300 rounded-full text-[9px] peer-checked:text-green-950 text-gray-800 font-extrabold after:flex after:items-center after:justify-center peer after:content-['Light'] peer-checked:after:content-['Dark'] peer-checked:after:translate-x-full after:absolute after:left-[2px] peer-checked:after:border-white after:bg-white after:border after:border-gray-300 after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-green-700 transform duration-1000 ease-in-out"
+    ></div>
+  </label>
+</div>
