@@ -1,5 +1,5 @@
 export const environment = {
-  // production: true,
-  // apiUrl: 'https://api.myapp.com',
-  // debugMode: false,
+  production: true,
+  apiUrl: 'https://fakestoreapi.com',
+  debugMode: false,
 };

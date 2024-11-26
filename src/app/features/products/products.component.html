@@ -1,1 +1,13 @@
-<p>products works!</p>
+
+
+
+<ng-container *ngIf="products; else loading">
+      <div *ngFor="let product of products ">{{product.title |json}}</div>
+  
+</ng-container>
+
+<ng-template #loading>
+<p class="text-red-500 text-2xl text-center font-bold">LOADING...</p>
+</ng-template>
+
+
