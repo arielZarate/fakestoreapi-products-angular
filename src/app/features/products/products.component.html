@@ -1,13 +1,13 @@
+<ng-container *ngIf="products; else loading" >
+  <!--  <div *ngFor="let product of products ">{{product.title |json}}</div>-->
 
-
-
-<ng-container *ngIf="products; else loading">
-      <div *ngFor="let product of products ">{{product.title |json}}</div>
-  
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-4  lg:gap-6 gap-1 mx-3 my-5">
+    <div *ngFor="let product of products; let i = index">
+      <app-card [product]="product"></app-card>
+    </div>
+  </div>
 </ng-container>
 
 <ng-template #loading>
-<p class="text-red-500 text-2xl text-center font-bold">LOADING...</p>
+  <p class="text-red-500 text-2xl text-center font-bold">LOADING...</p>
 </ng-template>
-
-

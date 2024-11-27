@@ -1,13 +1,15 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import DetailComponent from './detail/detail.component';
-import { BaseService } from '../../core/services/base.service';
+
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { ProductService } from './products.service';
+import { CardComponent } from './card/card.component';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,CardComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
@@ -15,7 +17,7 @@ export default class ProductsComponent implements OnInit, OnDestroy {
   private subscription: Subscription = new Subscription();
   //productsService = inject(BaseService);
   products: any[]|null =null;//// Inicializado como null para manejar loading state.
-  constructor(private productsService: BaseService) {}
+  constructor(private productsService: ProductService) {}
 
   // Inyección correcta del servicio
   //constructor(private baseService: baseService) {}
@@ -25,7 +27,7 @@ export default class ProductsComponent implements OnInit, OnDestroy {
         (data: any) => {
           // Asignamos los productos a la propiedad products
           this.products = data;
-          // console.log('************products*******\n', this.products);
+          console.log('************products*******\n', this.products);
         },
 
         (error: Error) => {
