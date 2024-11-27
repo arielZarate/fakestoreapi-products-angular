@@ -1,5 +1,5 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import DetailComponent from './detail/detail.component';
+import { LoaderComponent } from '../../shared/components/loader/loader.component';
 
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
@@ -9,7 +9,7 @@ import { CardComponent } from './card/card.component';
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule,CardComponent],
+  imports: [CommonModule,CardComponent,LoaderComponent],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
@@ -26,8 +26,10 @@ export default class ProductsComponent implements OnInit, OnDestroy {
       this.productsService.getProducts().subscribe(
         (data: any) => {
           // Asignamos los productos a la propiedad products
+         setTimeout(() => {
           this.products = data;
-          console.log('************products*******\n', this.products);
+         }, 2000);
+          //console.log('************products*******\n', this.products);
         },
 
         (error: Error) => {
