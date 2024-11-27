@@ -49,7 +49,6 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.onResize(new Event('resize')); 
-     // Obtener el icono del servicio
-   // this.shoppingCartIcon = IconsUtil.getShoppingCartIcon();
+
   }
 }

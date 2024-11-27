@@ -13,15 +13,13 @@ import { IProducts } from '../models/iproducts';
 export class BaseService {
   urlBase: string = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(protected http: HttpClient) {}
 
   //metodo que me retorna una url
   getUrlBase(): string {
     //  console.log('URLBASE:', this.urlBase);
     return this.urlBase;
   }
-
-
 
   // Método que permite modificar la URL base (si es necesario)
   setBaseUrl(url: string): void {
@@ -32,7 +30,8 @@ export class BaseService {
   getArrayCustomUrl<T>(name: string): Observable<T[]> {
     return this.http.get<T[]>(`${this.getUrlBase()}/${name}`);
   }
-  getCustomUrl(name: string): Observable<any>{
-    return this.http.get<any>(`${this.getUrlBase()}/${name}`);
+
+  getCustomUrl<T>(name: string): Observable<T> {
+    return this.http.get<T>(`${this.getUrlBase()}/${name}`);
   }
 }
