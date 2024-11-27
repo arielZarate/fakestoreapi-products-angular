@@ -39,7 +39,7 @@ export class CardComponent implements OnInit {
   //========tamaño de title====================
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 700) {
       this.titleLength = 18;
     } else {
       this.titleLength = 17;
