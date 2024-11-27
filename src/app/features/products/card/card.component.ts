@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
  
 })
 export class CardComponent implements OnInit {
-  @Input() product: any;
+  @Input() product:IProducts| null=null;
   titleLength: number =17;
  // shoppingCartIcon:any;
 
@@ -23,15 +23,15 @@ export class CardComponent implements OnInit {
 
   //==========formateo de las estrellas==============
   getFullStars() {
-    return Math.floor(this.product?.rating?.rate);
+    return Math.floor((this.product?.rating?.rate)as number);
   }
 
   getHalfStar() {
-    return this.product?.rating?.rate % 1 >= 0.5 ? 1 : 0;
+    return (this.product?.rating?.rate) as number % 1 >= 0.5 ? 1 : 0;
   }
 
   getEmptyStars() {
-    return 5 - Math.ceil(this.product?.rating?.rate);
+    return 5 - Math.ceil((this.product?.rating?.rate) as number );
   }
 
   //==============================================
