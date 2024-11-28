@@ -12,7 +12,7 @@
       <img
         src="https://images.unsplash.com/photo-1690138871287-02b2fc3b87c2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="logo"
-        class="w-12 h-8"
+        class="w-12 h-8 sm:w-20 sm:h-12"
       />
       <span
         class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
@@ -22,14 +22,14 @@
 
     <!--menu-->
     <div
-      [ngClass]="{ hidden: isMenuOpen }"
+      [ngClass]="{ hidden: !isMenuOpen }"
       id="collapseMenu"
       class="max-lg:hiddens lg:!block max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-50 max-lg:before:inset-0 max-lg:before:z-50"
     >
       <button
         (click)="toggleMenu()"
         id="toggleClose"
-        class="lg:hidden fixed top-2 right-4 z-[100] rounded-full bg-white w-9 h-9 flex items-center justify-center border"
+        class="md:hidden fixed top-2 right-4 z-[100] rounded-full bg-white w-9 h-9 flex items-center justify-center border"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -63,28 +63,120 @@
             >
           </a>
         </li>
-        <li class="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
+        <li>
           <a
-            href="javascript:void(0)"
-            class="hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]"
-            >Products</a
+            [routerLink]="['/']"
+            class="py-2.5 flex items-center hover:text-[#007bff] text-gray-500 cursor-pointer max-lg:border-b border-gray-300 max-lg:py-3 px-3"
+          >
+            <svg
+              *ngIf="isMenuOpen"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              fill="currentColor"
+            
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-4 h-4 mr-2"
+            >
+              <path
+                d="M326.3 218.8c0 20.5-16.7 37.2-37.2 37.2h-70.3v-74.4h70.3c20.5 0 37.2 16.7 37.2 37.2zM504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-128.1-37.2c0-47.9-38.9-86.8-86.8-86.8H169.2v248h49.6v-74.4h70.3c47.9 0 86.8-38.9 86.8-86.8z"
+              />
+            </svg>
+            Products</a
           >
         </li>
 
-        <li class="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
+        <li>
           <a
-            href="javascript:void(0)"
-            class="hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]"
-            >About</a
+            class="py-2.5 flex items-center hover:text-[#007bff] text-gray-500 cursor-pointer max-lg:border-b border-gray-300 max-lg:py-3 px-3"
           >
+            <svg
+              *ngIf="isMenuOpen"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 570 570"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-4 h-4 mr-2"
+            >
+              <!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+              <path
+                d="M512 80c8.8 0 16 7.2 16 16l0 320c0 8.8-7.2 16-16 16L64 432c-8.8 0-16-7.2-16-16L48 96c0-8.8 7.2-16 16-16l448 0zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l448 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM208 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16l192 0c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80l-64 0zM376 144c-13.3 0-24 10.7-24 24s10.7 24 24 24l80 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-80 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l80 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-80 0z"
+              />
+            </svg>
+            About
+          </a>
         </li>
-        <li class="max-lg:border-b border-gray-300 max-lg:py-3 px-3">
-          <a
-            href="javascript:void(0)"
-            class="hover:text-[#007bff] text-gray-500 block font-semibold text-[15px]"
-            >Contact</a
+        <li
+          class="py-2.5 flex items-center hover:text-[#007bff] text-gray-500 cursor-pointer max-lg:border-b border-gray-300 max-lg:py-3 px-3"
+        >
+          <svg
+            *ngIf="isMenuOpen"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-4 h-4 mr-2"
           >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+            />
+          </svg>
+
+          Contact
         </li>
+
+        <ng-container *ngIf="islogguedIn && isMenuOpen">
+          <li
+            class="py-2.5 flex items-center hover:text-[#007bff] text-gray-500 cursor-pointer max-lg:border-b border-gray-300 max-lg:py-3 px-3"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="w-4 h-4 mr-3"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M337.711 241.3a16 16 0 0 0-11.461 3.988c-18.739 16.561-43.688 25.682-70.25 25.682s-51.511-9.121-70.25-25.683a16.007 16.007 0 0 0-11.461-3.988c-78.926 4.274-140.752 63.672-140.752 135.224v107.152C33.537 499.293 46.9 512 63.332 512h385.336c16.429 0 29.8-12.707 29.8-28.325V376.523c-.005-71.552-61.831-130.95-140.757-135.223zM446.463 480H65.537V376.523c0-52.739 45.359-96.888 104.351-102.8C193.75 292.63 224.055 302.97 256 302.97s62.25-10.34 86.112-29.245c58.992 5.91 104.351 50.059 104.351 102.8zM256 234.375a117.188 117.188 0 1 0-117.188-117.187A117.32 117.32 0 0 0 256 234.375zM256 32a85.188 85.188 0 1 1-85.188 85.188A85.284 85.284 0 0 1 256 32z"
+              />
+            </svg>
+            View profile
+          </li>
+          <li
+            class="py-2.5 flex items-center hover:text-[#007bff] text-gray-500 cursor-pointer max-lg:border-b border-gray-300 max-lg:py-3 px-3"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="w-4 h-4 mr-3"
+              viewBox="0 0 512 512"
+            >
+              <path
+                d="M197.332 170.668h-160C16.746 170.668 0 153.922 0 133.332v-96C0 16.746 16.746 0 37.332 0h160c20.59 0 37.336 16.746 37.336 37.332v96c0 20.59-16.746 37.336-37.336 37.336zM37.332 32A5.336 5.336 0 0 0 32 37.332v96a5.337 5.337 0 0 0 5.332 5.336h160a5.338 5.338 0 0 0 5.336-5.336v-96A5.337 5.337 0 0 0 197.332 32zm160 480h-160C16.746 512 0 495.254 0 474.668v-224c0-20.59 16.746-37.336 37.332-37.336h160c20.59 0 37.336 16.746 37.336 37.336v224c0 20.586-16.746 37.332-37.336 37.332zm-160-266.668A5.337 5.337 0 0 0 32 250.668v224A5.336 5.336 0 0 0 37.332 480h160a5.337 5.337 0 0 0 5.336-5.332v-224a5.338 5.338 0 0 0-5.336-5.336zM474.668 512h-160c-20.59 0-37.336-16.746-37.336-37.332v-96c0-20.59 16.746-37.336 37.336-37.336h160c20.586 0 37.332 16.746 37.332 37.336v96C512 495.254 495.254 512 474.668 512zm-160-138.668a5.338 5.338 0 0 0-5.336 5.336v96a5.337 5.337 0 0 0 5.336 5.332h160a5.336 5.336 0 0 0 5.332-5.332v-96a5.337 5.337 0 0 0-5.332-5.336zm160-74.664h-160c-20.59 0-37.336-16.746-37.336-37.336v-224C277.332 16.746 294.078 0 314.668 0h160C495.254 0 512 16.746 512 37.332v224c0 20.59-16.746 37.336-37.332 37.336zM314.668 32a5.337 5.337 0 0 0-5.336 5.332v224a5.338 5.338 0 0 0 5.336 5.336h160a5.337 5.337 0 0 0 5.332-5.336v-224A5.336 5.336 0 0 0 474.668 32zm0 0"
+              />
+            </svg>
+            account
+          </li>
+
+          <li
+            class="py-2.5 flex items-center hover:text-[#007bff] text-gray-500 cursor-pointer max-lg:border-b border-gray-300 max-lg:py-3 px-3"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="w-4 h-4 mr-3"
+              viewBox="0 0 6.35 6.35"
+            >
+              <path
+                d="M3.172.53a.265.266 0 0 0-.262.268v2.127a.265.266 0 0 0 .53 0V.798A.265.266 0 0 0 3.172.53zm1.544.532a.265.266 0 0 0-.026 0 .265.266 0 0 0-.147.47c.459.391.749.973.749 1.626 0 1.18-.944 2.124-2.124 2.124s-2.124-.944-2.124-2.124c0-.654.29-1.235.749-1.626a.265.266 0 0 0-.174-.47.265.266 0 0 0-.174.065A2.653 2.654 0 0 0 .848 3.028a2.653 2.654 0 0 0 2.654 2.654A2.653 2.654 0 0 0 6.155 3.028a2.653 2.654 0 0 0-.905-2.065.265.266 0 0 0-.534.1.265.266 0 0 0 .265.266z"
+              />
+            </svg>
+            Log Out
+          </li>
+        </ng-container>
       </ul>
     </div>
 
@@ -129,10 +221,9 @@
           <div
             id="dropdownMenu"
             [class.hidden]="!isDropdownOpen"
-            class="absolute shadow-lg bg-white dark:bg-white dark:text-slate-800 py-2 z-[1000] min-w-[300px] w-max rounded-lg max-h-96 overflow-auto divide-y divide-gray-100 -translate-x-24 transition-all duration-1000 ease-in-out transform scale-0 opacity-0 "
+            class="absolute shadow-lg bg-white dark:bg-white dark:text-slate-800 py-2 z-[1000] min-w-[300px] w-max rounded-lg max-h-96 overflow-auto divide-y divide-gray-100 -translate-x-24 transition-all duration-1000 ease-in-out transform scale-0 opacity-0"
             [class.scale-100]="isDropdownOpen"
             [class.opacity-100]="isDropdownOpen"
-
           >
             <!-- Información del usuario -->
             <div class="p-5">
@@ -191,7 +282,7 @@
                       d="M197.332 170.668h-160C16.746 170.668 0 153.922 0 133.332v-96C0 16.746 16.746 0 37.332 0h160c20.59 0 37.336 16.746 37.336 37.332v96c0 20.59-16.746 37.336-37.336 37.336zM37.332 32A5.336 5.336 0 0 0 32 37.332v96a5.337 5.337 0 0 0 5.332 5.336h160a5.338 5.338 0 0 0 5.336-5.336v-96A5.337 5.337 0 0 0 197.332 32zm160 480h-160C16.746 512 0 495.254 0 474.668v-224c0-20.59 16.746-37.336 37.332-37.336h160c20.59 0 37.336 16.746 37.336 37.336v224c0 20.586-16.746 37.332-37.336 37.332zm-160-266.668A5.337 5.337 0 0 0 32 250.668v224A5.336 5.336 0 0 0 37.332 480h160a5.337 5.337 0 0 0 5.336-5.332v-224a5.338 5.338 0 0 0-5.336-5.336zM474.668 512h-160c-20.59 0-37.336-16.746-37.336-37.332v-96c0-20.59 16.746-37.336 37.336-37.336h160c20.586 0 37.332 16.746 37.332 37.336v96C512 495.254 495.254 512 474.668 512zm-160-138.668a5.338 5.338 0 0 0-5.336 5.336v96a5.337 5.337 0 0 0 5.336 5.332h160a5.336 5.336 0 0 0 5.332-5.332v-96a5.337 5.337 0 0 0-5.332-5.336zm160-74.664h-160c-20.59 0-37.336-16.746-37.336-37.336v-224C277.332 16.746 294.078 0 314.668 0h160C495.254 0 512 16.746 512 37.332v224c0 20.59-16.746 37.336-37.332 37.336zM314.668 32a5.337 5.337 0 0 0-5.336 5.332v224a5.338 5.338 0 0 0 5.336 5.336h160a5.337 5.337 0 0 0 5.332-5.336v-224A5.336 5.336 0 0 0 474.668 32zm0 0"
                     />
                   </svg>
-                  Dashboard
+                  account
                 </li>
               </ul>
               <div class="min-w-full w-max">
